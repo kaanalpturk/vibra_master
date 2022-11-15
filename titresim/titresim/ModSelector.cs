@@ -20,18 +20,26 @@ namespace titresim
         {
             InitializeComponent();
             port = sp;
+            readFile();
+
+        }
+        public void readFile()
+        {
             path = "mods.bin";
+            listBox1.Items.Clear();
             try
             {
                 FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Read);
                 //dosyadan satır satır okuyup textBox içine yazıdırıyoruz
                 using (StreamReader reader = new StreamReader(fileStream))
                 {
+                    int i = 1;
                     while (true)
                     {
                         string satir = reader.ReadLine();
-                        listBox1.Items.Add(satir);
                         if (satir == null) break;
+                        listBox1.Items.Add(satir);
+                        i++;
                     }
                     reader.Close();
                 }
@@ -41,9 +49,7 @@ namespace titresim
             {
 
             }
-
         }
-
         private void ModSelector_Load(object sender, EventArgs e)
         {
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
