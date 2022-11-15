@@ -9,6 +9,22 @@ namespace titresim
         {
             InitializeComponent();
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox6.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox7.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox8.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox9.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.Enabled = false;
+            comboBox3.Enabled = false;
+            comboBox4.Enabled = false;
+            comboBox5.Enabled = false;
+            comboBox6.Enabled = false;
+            comboBox7.Enabled = false;
+            comboBox8.Enabled = false;
+            comboBox9.Enabled = false;
             baglan.Enabled = false;
             baglatiDurumui.Text = "Baðlantý kurulmadý...";
             start.Enabled = false;
@@ -40,22 +56,29 @@ namespace titresim
         }
         public void portTara()
         {
-            comboBox1.Items.Clear();
-            ports = SerialPort.GetPortNames();
-            
-            if(ports.Length > 0)
+            try
             {
-                baglan.Enabled = true;  
+                comboBox1.Items.Clear();
+                ports = SerialPort.GetPortNames();
+
+                if (ports.Length > 0)
+                {
+                    baglan.Enabled = true;
+                }
+                else
+                {
+                    baglan.Enabled = false;
+                }
+                foreach (string port in ports)
+                {
+                    comboBox1.Items.Add(port);
+                }
+                comboBox1.SelectedIndex = 0;
             }
-            else
+            catch
             {
-                baglan.Enabled=false;
+
             }
-            foreach (string port in ports)
-            {
-                comboBox1.Items.Add(port);
-            }
-            comboBox1.SelectedIndex = 0;
         }
         SerialPort port;
         private void baglan_Click(object sender, EventArgs e)
@@ -189,21 +212,67 @@ namespace titresim
         private void motor1_CheckedChanged(object sender, EventArgs e)
         {
             kontrol();
+            if(motor1.Checked)
+            {
+                comboBox2.Enabled = true;
+                comboBox6.Enabled = true;
+            }
+            else
+            {
+                comboBox2.Enabled = false;
+                comboBox6.Enabled = false;
+            }
         }
 
         private void motor2_CheckedChanged(object sender, EventArgs e)
         {
             kontrol();
+            if (motor2.Checked)
+            {
+                comboBox3.Enabled = true;
+                comboBox7.Enabled = true;
+            }
+            else
+            {
+                comboBox3.Enabled = false;
+                comboBox7.Enabled = false;
+            }
         }
 
         private void motor3_CheckedChanged(object sender, EventArgs e)
         {
             kontrol();
+            if (motor3.Checked)
+            {
+                comboBox4.Enabled = true;
+                comboBox8.Enabled = true;
+            }
+            else
+            {
+                comboBox4.Enabled = false;
+                comboBox8.Enabled = false;
+            }
         }
 
         private void motor4_CheckedChanged(object sender, EventArgs e)
         {
             kontrol();
+            if (motor4.Checked)
+            {
+                comboBox5.Enabled = true;
+                comboBox9.Enabled = true;
+            }
+            else
+            {
+                comboBox5.Enabled = false;
+                comboBox9.Enabled = false;
+            }
+        }
+
+        private void mod_Click(object sender, EventArgs e)
+        {
+            ModSelector ms = new ModSelector(port);
+            ms.ShowDialog();
         }
     }
 }

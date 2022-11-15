@@ -25,3 +25,4 @@ C:\Users\kaana\source\repos\titresim\titresim\obj\Debug\net6.0-windows\titresim.
 C:\Users\kaana\source\repos\titresim\titresim\obj\Debug\net6.0-windows\ref\titresim.dll
 C:\Users\kaana\source\repos\titresim\titresim\obj\Debug\net6.0-windows\titresim.Properties.Resources.resources
 C:\Users\kaana\source\repos\titresim\titresim\obj\Debug\net6.0-windows\titresim.Vibration.resources
+C:\Users\kaana\source\repos\titresim\titresim\obj\Debug\net6.0-windows\titresim.ModSelector.resources

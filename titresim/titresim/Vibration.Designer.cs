@@ -49,6 +49,7 @@
             this.comboBox9 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.mod = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // motor1
@@ -107,9 +108,9 @@
             // 
             // stop
             // 
-            this.stop.Location = new System.Drawing.Point(124, 239);
+            this.stop.Location = new System.Drawing.Point(22, 268);
             this.stop.Name = "stop";
-            this.stop.Size = new System.Drawing.Size(85, 23);
+            this.stop.Size = new System.Drawing.Size(96, 23);
             this.stop.TabIndex = 5;
             this.stop.Text = "Durdur";
             this.stop.UseVisualStyleBackColor = true;
@@ -235,12 +236,25 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Çalıştır:";
             // 
+            // mod
+            // 
+            this.mod.BackColor = System.Drawing.Color.OldLace;
+            this.mod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mod.Image = global::titresim.Properties.Resources.ic;
+            this.mod.Location = new System.Drawing.Point(124, 239);
+            this.mod.Name = "mod";
+            this.mod.Size = new System.Drawing.Size(85, 52);
+            this.mod.TabIndex = 15;
+            this.mod.UseVisualStyleBackColor = false;
+            this.mod.Click += new System.EventHandler(this.mod_Click);
+            // 
             // Vibration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(237, 278);
+            this.ClientSize = new System.Drawing.Size(237, 305);
+            this.Controls.Add(this.mod);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox9);
@@ -293,5 +307,6 @@
         private ComboBox comboBox9;
         private Label label1;
         private Label label2;
+        private Button mod;
     }
 }
